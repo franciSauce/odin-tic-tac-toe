@@ -18,3 +18,27 @@ body {
     height: 100vh;
 }
 
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 18rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu > h1 {
+    border-bottom: 3px solid var(--stark);
+    margin-bottom: 1.8rem;
+    font-size: 4rem;
+}
+
+.menu > p {
+    margin: 1.25rem;
+    font-size: 2.5rem;
+}
