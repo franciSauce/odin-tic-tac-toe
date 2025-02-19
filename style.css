@@ -114,3 +114,26 @@ body {
     transition: opacity 0.5s ease;
 }
 
+.modal-box.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    width: 25rem;
+    height: 15rem;
+    max-width: 100%;
+    padding: 1.875rem 3.125rem;
+    background-color: var(--void);
+    color: var(--stark);
+    border: 3px solid var(--jewel);
+    border-radius: 0.625rem;
+}
+
+.game-mode.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px 10px rgba(71, 23, 246, 0.5);
+}
