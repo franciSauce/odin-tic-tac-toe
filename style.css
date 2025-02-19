@@ -84,9 +84,9 @@ body {
     cursor: pointer;
 }
 
-.game-start,
-.game-start-pvp,
-.game-start-pvb {
+.game-start.modal-box,
+.game-start-pvp.modal-box,
+.game-start-pvb.modal-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +99,7 @@ body {
     pointer-events: none;
 }
 
-.game-end {
+.game-end.modal-box {
     display: flex;
     justify-content: center;
     align-items: center;
