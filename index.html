@@ -8,6 +8,42 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    
+    <div class="game-start">
+        <div class="game-mode">
+            <h1>Select GameMode:</h1>
+            <div class="btns">
+                <button id="pvp">P v P</button>
+                <button id="pvb">P v B</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-start-pvp">
+        <div class="player-inputs">
+            <h1>Enter Player Names:</h1>
+            <input id="player1" type="text" placeholder="Player 1">
+            <input id="player2" type="text" placeholder="Player 2">
+            <div class="btns">
+                <button class="back">Back</button>
+                <button class="play">Play</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-start-pvb">
+        <div class="pvb-inputs">
+            <h1>Select Mark</h1>
+            <div class="radio-btns">
+                <input type="radio" id="X" name="xo">
+                <label for="X">X</label>
+                <input type="radio" id="O" name="xo">
+                <label for="O">O</label>  
+            </div>
+            <input type="text" id="playerinput" placeholder="Player Name">
+            <div class="btns">
+                <button class="back">Back</button>
+                <button class="play">Play</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
