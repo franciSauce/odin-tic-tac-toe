@@ -81,4 +81,36 @@ body {
     font-size: 3rem;
     border: 3px solid var(--jewel);
     color: var(--stark);
+    cursor: pointer;
 }
+
+.game-start,
+.game-start-pvp,
+.game-start-pvb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.game-end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
