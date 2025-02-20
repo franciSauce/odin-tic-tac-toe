@@ -29,3 +29,19 @@ const Player = function(xo) {
     return {makeMove};
 };
 
+// Gameboard Module
+const GameBoard = (function() {
+    // Methods & Properties
+    const gameboard = ["","","","","","","","",""];
+    // Display gameboard array on gameboard
+    function updateGameboard() {
+        Gameboard.gameboard.forEach((element, index) => {
+            let cell = document.querySelector(`.cell${index}`);
+            cell.textContent = element;
+        })
+        GameEnd.checkWinner();
+    }
+    // Return the Gameboard object
+    return {gameboard, updateGameboard};
+})();
+
