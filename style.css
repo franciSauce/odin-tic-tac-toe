@@ -152,7 +152,8 @@ body {
 }
 
 .game-mode > .btns > button,
-.player-inputs > .btns > button {
+.player-inputs > .btns > button,
+.pvb-inputs > .btns > button {
     width: 10rem;
     height: 3.125rem;
     font-size: 1.25rem;
@@ -164,7 +165,8 @@ body {
 }
 
 .game-mode > .btns > button:hover,
-.player-inputs > .btns > button:hover {
+.player-inputs > .btns > button:hover,
+.pvb-inputs > .btns > button:hover {
     background-color: var(--fuschia);
     color: var(--void);
     box-shadow: 0px 0px 10px 5px rgba(162, 57, 202, 0.3);
