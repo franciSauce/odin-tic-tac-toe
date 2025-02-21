@@ -240,4 +240,39 @@ const GameEnd = (function() {
     function _refreshPage() {
         window.location.reload();
     }
+    // Display player 1 as winner
+    function _player1Win() {
+        _displayWinner();
+        cells.forEach(cell => cell.removeEventListener("click", GameStart.player2.makeMove));
+        cells.forEach(cell => cell.removeEventListener("click", AI.makeMove));
+        if (!p1input.value) {
+            if (x.checked) {
+                announce.textContent = `${playerName.value} wins!`;
+            } else if (o.checked) {
+                announce.textContent = "Bot wins!";
+            }
+        } else {
+            announce.textContent = `${p1input.value} wins!`;
+        }
+    }
+    // Display player 2 as winner
+    function _player2Win() {
+        _displayWinner();
+        cells.forEach(cell => cell.removeEventListener("click", GameStart.player1.makeMove));
+        cells.forEach(cell => cell.removeEventListener("click", AI.makeMove));
+        if (!p2input.value) {
+            if (o.checked) {
+                announce.textContent = `${playerName.value} wins!`;
+            } else if (x.checked) {
+                announce.textContent = "Bot wins!";
+            }
+        } else {
+            announce.textContent = `${p2input.value} wins!`;
+        }
+    }
+    // If it's a tie
+    function _tie() {
+        _displayWinner();
+        announce.textContent = "It's a tie!";
+    }
 })
