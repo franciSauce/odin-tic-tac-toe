@@ -96,7 +96,7 @@ const GameStart = (function() {
     function _startGame() {
         if (!p1input.value || !p2input.value) return;
         displayPlayerNames();
-        gameStart.classList.remove("show");
+        gameStartPVP.classList.remove("show");
         cells.forEach(cell => cell.addEventListener("click", player1.makeMove));
     }
     // Reset game
