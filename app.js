@@ -137,11 +137,11 @@ const AI = (function(){
     // Display player names
     function _displayPlayerNames() {
         if (x.checked) {
-            p1name.textContent = playerName.value;
+            p1name.textContent = playerName.value || "Player";
             p2name.textContent = "Bot";
         } else if (o.checked) {
             p1name.textContent = "Bot";
-            p2name.textContent = playerName.value;
+            p2name.textContent = playerName.value || "Player";
         }
     }
     // Start Player vs Bot game
@@ -231,7 +231,7 @@ const GameEnd = (function() {
             cells.forEach(cell => cell.addEventListener("click", GameStart.player1.makeMove));
         } else {
             if (o.checked) {
-                setTimeout(Animation.opponentMove, "500");
+                setTimeout(AI.opponentMove, "500");
             }
             cells.forEach(cell => cell.addEventListener("click", AI.makeMove));
         }
