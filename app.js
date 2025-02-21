@@ -116,3 +116,81 @@ const GameStart = (function() {
     // Return player 1 & player 2 object
     return {player1, player2};
 })();
+
+// Bot Module
+const AI = (function(){
+    // DOM Cache
+    const cells = document.querySelectorAll(".cell");
+    const backBtn = document.querySelector(".back-bot");
+    const playBtn = document.querySelector(".play-bot");
+    const playerName = document.querySelector("#playerinput");
+    const x = document.querySelector("#X");
+    const o = document.querySelector("#O");
+    const p1name = document.querySelector("#p1name");
+    const p2name = document.querySelector("#p2name");
+    const gameStartPVB = document.querySelector(".game-start-pvb");
+    const gameEnd = document.querySelector(".game-end");
+    // Event Listeners
+    backBtn.addEventListener("click", _refreshPage);
+    playBtn.addEventListener("click", _startGame);
+    // Methods & Properties
+    // Display player names
+    function _displayPlayerNames() {
+        if (x.checked) {
+            p1name.textContent = playerName.value;
+            p2name.textContent = "Bot";
+        } else if (o.checked) {
+            p1name.textContent = "Bot";
+            p2name.textContent = playerName.value;
+        }
+    }
+    // Start Player vs Bot game
+    function _startGame() {
+        if (!x.checked && !o.checked) return;
+        if (!playerName.value) return;
+        _displayPlayerNames();
+        gameStartPVB.classList.remove("show");
+        if (o.checked) {
+            setTimeout(opponentMove, "500");
+        }
+        cells.forEach(cell => cell.addEventListener("click", makeMove));
+    }
+    // Update gameboard array
+    function makeMove(e) {
+        const index = e.target.dataset.cellIndex;
+        if (GameBoard.gameboard[index]) {
+            return;
+        } else {
+            if (x.checked) {
+                GameBoard.gameboard.splice(index, 1, "X");
+            } else if (o.checked) {
+                GameBoard.gameboard.splice(index, 1, "O");
+            }
+        }
+        GameBoard.updateGameboard();
+        cells.forEach(cell => cell.removeEventListener("click", makeMove));
+        setTimeout(opponentMove, "500");
+    }
+    // Bot move
+    function opponentMove() {
+        if (gameEnd.classList.contains("show")) return;
+        let index = Math.floor(Math.random() * 9);
+        while (GameBoard.gameboard[index]) {
+            index = Math.floor(Math.random() * 9);
+        }
+        if (x.checked) {
+            GameBoard.gameboard.splice(index, 1, "O");
+        } else if (o.checked) {
+            GameBoard.gameboard.splice(index, 1, "X");
+        }
+        GameBoard.updateGameboard();
+        cells.forEach(cell => cell.addEventListener("click", makeMove));
+    }
+    // Refresh Page
+    function _refreshPage() {
+        window.location.reload();
+    }
+    // Return the Bot object
+    return {makeMove, opponentMove};
+})();
+
