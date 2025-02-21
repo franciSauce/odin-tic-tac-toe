@@ -194,3 +194,25 @@ const AI = (function(){
     return {makeMove, opponentMove};
 })();
 
+// GameEnd Module
+const GameEnd = (function() {
+    // DOM Cache
+    const cells = document.querySelectorAll(".cell");
+    const winner = document.querySelector(".game-end");
+    const backBtn = document.querySelector(".back-end");
+    const resetBtn = document.querySelector(".reset-end");
+    const menuBtn = document.querySelector(".refresh-end");
+    const announce = document.querySelector(".announce");
+    const p1input = document.querySelector("#player1");
+    const p2input = document.querySelector("#player2");
+    const playerName = document.querySelector("#playerinput");
+    const x = document.querySelector("#X");
+    const o = document.querySelector("#O");
+    // Event Listeners
+    backBtn.addEventListener("click", _closeWinner);
+    resetBtn.addEventListener("click", _resetGameboard);
+    menuBtn.addEventListener("click", _refreshPage);
+    // Methods & Properties
+    // Check for winner
+
+})
