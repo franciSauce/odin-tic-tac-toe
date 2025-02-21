@@ -36,7 +36,7 @@ const GameBoard = (function() {
     // Display gameboard array on gameboard
     function updateGameboard() {
         Gameboard.gameboard.forEach((element, index) => {
-            let cell = document.querySelector(`.cell${index}`);
+            let cell = document.querySelector(`.cell[data-index="${index}"]`);
             cell.textContent = element;
         })
         GameEnd.checkWinner();
