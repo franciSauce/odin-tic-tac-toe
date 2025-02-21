@@ -275,4 +275,27 @@ const GameEnd = (function() {
         _displayWinner();
         announce.textContent = "It's a tie!";
     }
-})
+
+    // Check for winner after each move
+    function checkWinner() {
+        const winningCombinations = [
+            [0,1,2], [3,4,5], [6,7,8], 
+            [0,3,6], [1,4,7], [2,5,8], 
+            [0,4,8], [2,4,6]
+        ];
+        winningCombinations.forEach(combination => {
+            if (GameBoard.gameboard[combination[0]] && GameBoard.gameboard[combination[0]] === GameBoard.gameboard[combination[1]] && GameBoard.gameboard[combination[0]] === GameBoard.gameboard[combination[2]]) {
+                if (GameBoard.gameboard[combination[0]] === "X") {
+                    _player1Win();
+                } else if (GameBoard.gameboard[combination[0]] === "O") {
+                    _player2Win();
+                }
+            }
+        });
+        if (!GameBoard.gameboard.includes("")) {
+            _tie();
+        }
+    }
+    // Return the GameEnd object
+    return {checkWinner};
+})();
