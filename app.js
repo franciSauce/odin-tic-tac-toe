@@ -104,17 +104,17 @@ const GameStart = (function() {
         Gameboard.gameboard = ["","","","","","","","",""];
         Gameboard.updateGameboard();
         if (p1input.value) {
-            cells.forEach(cell => cell.removeEventListener("click", GameStart.player2.makeMove));
-            cells.forEach(cell => cell.addEventListener("click", GameStart.player1.makeMove));
+            cells.forEach(cell => cell.removeEventListener("click", player2.makeMove));
+            cells.forEach(cell => cell.addEventListener("click", player1.makeMove));
         } else {
             if (o.checked) {
-                setTimeout(Animation.opponentMove, "500");
+                setTimeout(AI.opponentMove, "500");
             }
             cells.forEach(cell => cell.addEventListener("click", AI.makeMove));
         }
     }
     // Return player 1 & player 2 object
-    return {player1, player2};
+    return {player1, player2, displayPlayerNames};
 })();
 
 // Bot Module
