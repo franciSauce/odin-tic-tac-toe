@@ -75,8 +75,8 @@ const GameStart = (function() {
     const player2 = Player("O");
     // Display player names
     function displayPlayerNames() {
-        p1name.textContent = p1input.value;
-        p2name.textContent = p2input.value;
+        p1name.textContent = p1input.value || "Player 1";
+        p2name.textContent = p2input.value || "Player 2";
     }
     // Player vs Player mode
     function _choosePVP() {
@@ -95,7 +95,7 @@ const GameStart = (function() {
     // Start Player vs Player game
     function _startGame() {
         if (!p1input.value || !p2input.value) return;
-        _displayPlayerNames();
+        displayPlayerNames();
         gameStart.classList.remove("show");
         cells.forEach(cell => cell.addEventListener("click", player1.makeMove));
     }
