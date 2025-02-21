@@ -213,6 +213,31 @@ const GameEnd = (function() {
     resetBtn.addEventListener("click", _resetGameboard);
     menuBtn.addEventListener("click", _refreshPage);
     // Methods & Properties
-    // Check for winner
-
+    // Display winnermodal
+    function _displayWinner() {
+        winner.classList.add("show");
+    }
+    // Close winner modal
+    function _closeWinner() {
+        winner.classList.remove("show");
+    }
+    // Reset game
+    function _resetGameboard() {
+        _closeWinner();
+        GameBoard.gameboard = ["","","","","","","","",""];
+        GameBoard.updateGameboard();
+        if (p1input.value) {
+            cells.forEach(cell => cell.removeEventListener("click", GameStart.player2.makeMove));
+            cells.forEach(cell => cell.addEventListener("click", GameStart.player1.makeMove));
+        } else {
+            if (o.checked) {
+                setTimeout(Animation.opponentMove, "500");
+            }
+            cells.forEach(cell => cell.addEventListener("click", AI.makeMove));
+        }
+    }
+    // Refresh Page
+    function _refreshPage() {
+        window.location.reload();
+    }
 })
