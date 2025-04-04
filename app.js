@@ -15,6 +15,7 @@ const Player = function(xo) {
     }
     // Update gameboard array
     function makeMove(e) {
+        console.log("Clicked cell index:", e.target.dataset.cellIndex); // Debug log
         // Get the cell that was clicked
         const index = e.target.dataset.cellIndex;
         if (GameBoard.gameboard[index]) {
@@ -36,7 +37,7 @@ const GameBoard = (function() {
     // Display gameboard array on gameboard
     function updateGameboard() {
         GameBoard.gameboard.forEach((element, index) => {
-            let cell = document.querySelector(`.cell[data-index="${index}"]`);
+            let cell = document.querySelector(`.cell[data-cell-index="${index}"]`);
             cell.textContent = element;
         })
         GameEnd.checkWinner();
@@ -101,8 +102,8 @@ const GameStart = (function() {
     }
     // Reset game
     function _resetGameboard() {
-        Gameboard.gameboard = ["","","","","","","","",""];
-        Gameboard.updateGameboard();
+        GameBoard.gameboard = ["","","","","","","","",""];
+        GameBoard.updateGameboard();
         if (p1input.value) {
             cells.forEach(cell => cell.removeEventListener("click", player2.makeMove));
             cells.forEach(cell => cell.addEventListener("click", player1.makeMove));
