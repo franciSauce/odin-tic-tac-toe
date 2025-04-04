@@ -35,7 +35,7 @@ const GameBoard = (function() {
     const gameboard = ["","","","","","","","",""];
     // Display gameboard array on gameboard
     function updateGameboard() {
-        Gameboard.gameboard.forEach((element, index) => {
+        GameBoard.gameboard.forEach((element, index) => {
             let cell = document.querySelector(`.cell[data-index="${index}"]`);
             cell.textContent = element;
         })
