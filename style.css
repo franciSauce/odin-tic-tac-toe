@@ -169,8 +169,8 @@ body {
 .game-mode > .btns > button:hover,
 .player-inputs > .btns > button:hover,
 .pvb-inputs > .btns > button:hover,
-.game-end >.modal > button,
-.game-end > .modal > .btns > button {
+.game-end >.modal > button:hover,
+.game-end > .modal > .btns > button:hover {
     background-color: var(--fuschia);
     color: var(--void);
     box-shadow: 0px 0px 10px 5px rgba(162, 57, 202, 0.3);
@@ -241,12 +241,20 @@ body {
 }
 
 .game-end > .announce {
-    margin-bottom: 1.875rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
-.game-end > .btns {
-    display: flex;
-    gap: 1.25rem;
-    margin-bottom: 1.25rem;
+.back-end,
+.reset-end {
+    width: 5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: var(--void);
+    border: 3px solid var(--fuschia);
+    color: var(--stark);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
 }
